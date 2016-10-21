@@ -114,12 +114,12 @@
      * @return void
      */
     function checkForCollisions() {
-        console.log (asteroidNumber);
-        if ()
-        // Implement me!
+        // console.log (asteroidNumber);
+      //   if ()
+      //   // Implement me!
+      //
 
-      }
-
+}
     /**
      * This event handler will execute when a crash occurs
      *
