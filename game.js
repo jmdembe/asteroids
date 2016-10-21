@@ -4,14 +4,28 @@
     var shipElem = document.getElementById('ship');
 
     // Create your "ship" object and any other variables you might need...
+    var ship = {
+        htmlElem: shipElem,
+        velocity: 0,
+        angle: 0
+    };
 
+    ship.htmlElem.style.top='400px';
+    ship.htmlElem.style.left='50px';
 
     var allAsteroids = [];
+    var asteroidNumber = 0;
+
     shipElem.addEventListener('asteroidDetected', function (event) {
         // You can detect when a new asteroid appears with this event.
         // The new asteroid's HTML element will be in:  event.detail
 
         // What might you need/want to do in here?
+        // asteroidDetected = 'true';
+        console.log(asteroidNumber+=1, 'HI!');
+        var newAsteroid=event.detail;
+        allAsteroids.push(newAsteroid);
+        console.log(allAsteroids);
 
     });
 
@@ -29,9 +43,30 @@
      */
     function handleKeys(event) {
         console.log(event.keyCode);
+        if(event.keyCode === 37){
+            ship.angle -= 5;
+            ship.htmlElem.style.transform = 'rotate('+ ship.angle + 'deg)';
+            console.log('rotate('+ ship.angle + '5deg)')
+            console.log()
+          }
+        else if (event.keyCode === 38) {
+          ship.velocity += 1;
+          // console.log(shipMove.left, 'shipMoveleft');
+          // console.log('shipmove', shipMove);
+          // console.log(shipMove.top, 'shipMovetop')
+          }
+        else if(event.keyCode === 39){
+            ship.angle += 5;
+            ship.htmlElem.style.transform = 'rotate('+ ship.angle + 'deg)';
+            console.log('rotate('+ ship.angle + 'deg)')
+          }
+        else if(event.keyCode === 40) {
+          ship.velocity -=1;
 
-        // Implement me!
-
+          if (ship.velocity <= 0) {
+            ship.velocity = 0;
+          }
+        }
     }
     document.querySelector('body').addEventListener('keyup', handleKeys);
 
@@ -48,14 +83,20 @@
         // NOTE: you will need to change these arguments to match your ship object!
         // What does this function return? What will be in the `move` variable?
         // Read the documentation!
-        var move = getShipMovement(shipsCurrentVelocity, shipsCurrentAngle);
+        var move = getShipMovement(ship.velocity, ship.angle);  // { top: 2, left:5 }
+        var top = parseInt(ship.htmlElem.style.top);  // 20
+        top -= move.top;  // 22
+        ship.htmlElem.style.top = top + 'px'; // "22px"
 
-
+        var left = parseInt(ship.htmlElem.style.left);
+        left+= move.left;
+        ship.htmlElem.style.left=left+'px';
         // Move the ship here!
 
 
         // Time to check for any collisions (see below)...
         checkForCollisions();
+
     }
 
     /**
@@ -73,11 +114,11 @@
      * @return void
      */
     function checkForCollisions() {
-
+        console.log (asteroidNumber);
+        if ()
         // Implement me!
 
-    }
-
+      }
 
     /**
      * This event handler will execute when a crash occurs
