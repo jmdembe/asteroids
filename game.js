@@ -21,7 +21,6 @@
 
         // What might you need/want to do in here?
         var asteroidDetected = 'false';
-        console.log(asteroidNumber+=1, 'HI!');
         var newAsteroid=event.detail;
         allAsteroids.push(newAsteroid);
         console.log(allAsteroids);
@@ -115,9 +114,10 @@
     function checkForCollisions() {
 
         var shipCoordinates = ship.htmlElem.getBoundingClientRect();
+        console.log(shipCoordinates)
 
-        for (i=0; i < allAsteroids.legnth; i++) {
-            var asteroidCheck=allAsteroids.getBoundingClientRect();
+        for (var i=0; i < allAsteroids.legnth; i++) {
+            var asteroidCheck=allAsteroids[i].getBoundingClientRect();
             console.log(asteroidCheck);
         }
 
