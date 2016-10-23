@@ -14,14 +14,13 @@
     ship.htmlElem.style.left='50px';
 
     var allAsteroids = [];
-    var asteroidNumber = 0;
 
     shipElem.addEventListener('asteroidDetected', function (event) {
         // You can detect when a new asteroid appears with this event.
         // The new asteroid's HTML element will be in:  event.detail
 
         // What might you need/want to do in here?
-        // asteroidDetected = 'true';
+        var asteroidDetected = 'false';
         console.log(asteroidNumber+=1, 'HI!');
         var newAsteroid=event.detail;
         allAsteroids.push(newAsteroid);
@@ -114,12 +113,15 @@
      * @return void
      */
     function checkForCollisions() {
-        // console.log (asteroidNumber);
-      //   if ()
-      //   // Implement me!
-      //
 
-}
+        var shipCoordinates = ship.htmlElem.getBoundingClientRect();
+
+        for (i=0; i < allAsteroids.legnth; i++) {
+            var asteroidCheck=allAsteroids.getBoundingClientRect();
+            console.log(asteroidCheck);
+        }
+
+      }
     /**
      * This event handler will execute when a crash occurs
      *
