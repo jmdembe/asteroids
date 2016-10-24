@@ -14,7 +14,6 @@
     ship.htmlElem.style.left='50px';
 
     var allAsteroids = [];
-    var asteroidCheck;
 
     shipElem.addEventListener('asteroidDetected', function (event) {
         // You can detect when a new asteroid appears with this event.
@@ -117,10 +116,12 @@
         var shipCoordinates = ship.htmlElem.getBoundingClientRect();
         console.log(shipCoordinates)
 
-        console.log(asteroidCheck);
         for (var i=0; i < allAsteroids.legnth; i++) {
-            asteroidCheck=allAsteroids[i].getBoundingClientRect();
-            console.log(asteroidCheck);
+            var asteroidCheck=allAsteroids[i].getBoundingClientRect();
+            console.log('hello!' + [i] + allAsteroids[i].getBoundingClientRect());
+
+            if (asteroidcheck.left)
+
         }
 
       }
