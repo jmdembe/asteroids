@@ -48,10 +48,10 @@
             console.log()
           }
         else if (event.keyCode === 38) {
-          ship.velocity += 1;
-          // console.log(shipMove.left, 'shipMoveleft');
-          // console.log('shipmove', shipMove);
-          // console.log(shipMove.top, 'shipMovetop')
+            ship.velocity += 1;
+            // console.log(shipMove.left, 'shipMoveleft');
+            // console.log('shipmove', shipMove);
+            // console.log(shipMove.top, 'shipMovetop')
           }
         else if(event.keyCode === 39){
             ship.angle += 5;
@@ -120,7 +120,9 @@
             var asteroidCheck=allAsteroids[i].getBoundingClientRect();
             console.log('hello!' + [i] + allAsteroids[i].getBoundingClientRect());
 
-            if (asteroidcheck.left)
+            if (asteroidCheck.left) {
+              console.log (asteroidCheck.left);
+            }
 
         }
 
